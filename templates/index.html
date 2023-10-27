@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Items</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td><img src="{{  item[3] }}" alt="{{ item[1] }} image"></td>
+            <td>
+                <a href="{{ url_for('edit', item_id=item[0]) }}">Edit</a>
+                <a href="{{ url_for('delete', item_id=item[0]) }}">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+ 
+{% endblock %}
